@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 import './App.css';
+import TimerCompo from './Compo/TimerCompo';
+import LogIn from './Pages/LogIn';
+import SignIn from './Pages/SignIn';
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" flex items-center justify-center w-screen h-screen">
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/'> <LogIn /> </Route>
+          <Route path='/timer'><TimerCompo /></Route>
+          <Route path='/signIn'> <SignIn /> </Route>
+
+        </Switch>
+      </BrowserRouter>
+
     </div>
   );
+
 }
 
 export default App;
